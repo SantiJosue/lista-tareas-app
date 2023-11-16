@@ -283,3 +283,42 @@
 	color: #4B4B4B;
 	border: 2px solid var(--azul);
 }
+
+/* COMPONENTE ALERTA */
+
+.contenedor-alerta {
+	z-index: 1000;
+    width: 100%;
+    left: 0;
+    top: 0;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: slideDown 2s ease forwards;
+}
+
+@keyframes slideDown {
+	0% {
+		transform: translateY(-1.25rem); /* 20px */
+		opacity: 0;
+	}
+ 
+	20% {
+		transform: translateY(0);
+		opacity: 1;
+	}
+ 
+	100% {
+		opacity: 0;
+	}
+
+}
+.contenedor-alerta__p {
+	background-color: red;
+	color: #fff;
+    padding: 1.25rem 2.5rem; /* 20px 40px */
+    border-radius: 0.31rem; /* 5px */
+    box-shadow: 0px 0px 15px rgba(0,0,0,.1);
+    text-align: center;
+}

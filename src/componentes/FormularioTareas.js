@@ -2,9 +2,12 @@ import React, {useState} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlusSquare } from '@fortawesome/free-solid-svg-icons';
 import { v4 as uuidv4 } from 'uuid';
+import Alerta from './Alerta';
 
 const FormularioTareas = ({tareas, cambiarTareas}) => {
     const [inputTarea, cambiarInputTarea] = useState([]);
+    const [estadoAlerta, cambiarEstadoAlerta] = useState(false);
+    const [alerta, cambiarAlerta] = useState({});
 
     const handleInput = (e) => {
         cambiarInputTarea(e.target.value);
@@ -13,7 +16,10 @@ const FormularioTareas = ({tareas, cambiarTareas}) => {
     const handleSubmit = (e) => {
       e.preventDefault();
       if(inputTarea.length === 0){
-        alert("Ingresa un valor");
+        cambiarEstadoAlerta(true);
+        cambiarAlerta({
+          mensaje: "Por favor ingrese una tarea."
+        })
       } else {
         cambiarTareas([
           ...tareas,
@@ -43,6 +49,11 @@ const FormularioTareas = ({tareas, cambiarTareas}) => {
                 className='formulario-tareas__icono-btn'
             />
         </button>
+        <Alerta 
+          mensaje={alerta.mensaje}
+          estadoAlerta={estadoAlerta}
+          cambiarEstadoAlerta={cambiarEstadoAlerta}
+        />
       </form>
     );
 }

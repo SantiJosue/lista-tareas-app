@@ -5,7 +5,7 @@ import { faCheckSquare, faEdit, faSquare, faTimes } from '@fortawesome/free-soli
 const Tarea = ({tarea, toggleCompletada, editarTarea, borrarTarea}) => {
     const [editandoTarea, cambiarEditandoTarea] = useState(false);
     const [nuevaTarea, cambiarNuevaTarea] = useState(tarea.texto);
-    
+
     const handleSubmit = (e) => {
         e.preventDefault();
         editarTarea(tarea.id, nuevaTarea);

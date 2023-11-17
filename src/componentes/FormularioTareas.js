@@ -25,7 +25,8 @@ const FormularioTareas = ({tareas, cambiarTareas}) => {
           ...tareas,
           {
             id: uuidv4(),
-            texto: inputTarea
+            texto: inputTarea,
+            completada: false
           }
         ])
         cambiarInputTarea("");
